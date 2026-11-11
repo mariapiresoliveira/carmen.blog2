@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Red - Carmen Sandiego</title>
+
+    <style>
+        /* Estilo geral da página */
+        body {
+            background-color: #f4eee5;
+            color: #252525;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Cabeçalho do blog */
+        header {
+            background-color: #920808;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            padding: 25px;
+            border: 4px solid #c5a23d;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 15px;
+            color: #f5e6c5;
+        }
+
+        /* Área principal */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Cada publicação do blog */
+        article {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #920808;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+            transition: transform 0.3s;
+        }
+
+        /* Efeito ao passar o mouse pelo post */
+        article:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Imagens dos posts */
+        article img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #c5a23d;
+        }
+
+        /* Títulos dos posts */
+        article h2 {
+            color: #920808;
+            font-size: 22px;
+            margin-top: 0;
+        }
+
+        /* Nome da autora */
+        .artigo-autor {
+            font-weight: bold;
+            color: #8b6b22;
+            font-size: 14px;
+        }
+
+        /* Texto dos posts */
+        article p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Botões de reação */
+        button {
+            cursor: pointer;
+            padding: 6px 10px;
+            font-size: 14px;
+            margin-right: 5px;
+            background-color: #f4eee5;
+            border: 1px solid #c5a23d;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ead9b4;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            article {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            article img {
+                width: 110px;
+                height: 110px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>MEU BLOG RED</h1>
+        <p>Explore o mundo de mistérios e aventuras de Carmen Sandiego!</p>
+    </header>
+
+    <main>
+
+        <!-- PRIMEIRO POST -->
+        <article>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEoBDZivdFudTSvwObf9a5XCLMip3MHQV2f7umlTWbQ&s=10"
+            alt="Logo da série Carmen Sandiego">
+
+            <div>
+                <h2>Meu primeiro post</h2>
+
+                <p class="artigo-autor">Por: Maria Cecilia 🌹</p>
+
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar curiosidades sobre a série Carmen Sandiego.</p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+
+        <!-- SEGUNDO POST -->
+        <article>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEoBDZivdFudTSvwObf9a5XCLMip3MHQV2f7umlTWbQ&s=10"
+            alt="Logo da série Carmen Sandiego">
+
+            <div>
+                <h2>Quem é Carmen Sandiego?</h2>
+
+                <p class="artigo-autor">Por: Maria Cecilia 🌹</p>
+
+                <p>Carmen Sandiego é uma personagem conhecida por suas aventuras pelo mundo, investigando mistérios e descobrindo pistas em diferentes países.</p>
+
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+
+    </main>
+
+    <script>
+        // Seleciona todos os botões da página.
+        const botoes = document.querySelectorAll("button");
+
+        // Percorre cada botão individualmente.
+        botoes.forEach(function(botao) {
+
+            // Controla se o botão já recebeu uma curtida.
+            let curtiu = false;
+
+            // Identifica quando o botão é clicado.
+            botao.addEventListener("click", botaoClicado);
+
+            function botaoClicado() {
+
+                // Seleciona o contador dentro do botão.
+                let texto = botao.querySelector("span");
+
+                // Verifica se o botão ainda não foi curtido.
+                if (curtiu === false) {
+
+                    // Aumenta o contador em 1.
+                    texto.textContent++;
+                    curtiu = true;
+
+                } else {
+
+                    // Diminui o contador em 1.
+                    texto.textContent--;
+                    curtiu = false;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
